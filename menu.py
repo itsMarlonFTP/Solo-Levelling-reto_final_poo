@@ -1,3 +1,4 @@
+import sys
 from time import sleep
 from os import system
 from random import choice
@@ -25,8 +26,28 @@ system('cls')
 match(answer):
     case '1':
         sleep(delay)
-        print("Test 1")
+        print("Welcome to Solo Levelling Game, select you class")
+        sleep(delay)
+        print("\nWarrior \nMage \nHunter\n")
+        answer= input()
         
+        if answer != "warrior" "Warrior":
+            print("This class does not exist, please select a class existed")
+        else:
+            print()
+        if answer != "mage" "Mage":
+            print("This class does not exist, please select a class existed")
+        else:
+            print()
+        if answer != "Hunter" "hunter":
+            print("This class does not exist, please select a class existed")
+        else:
+            print()
     case'2':
         sleep(delay)
-        print("Test 2")
+        print("I don't know what to put here c:")
+        
+    case'3':
+        sleep(delay)
+        print("Vuelva pronto")
+        sys.exit()
