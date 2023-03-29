@@ -55,14 +55,25 @@ print(personaje_1.stats)
 print(personaje_2.stats)
 <<<<<<< Updated upstream
 
-class Items: 
+# class Items: 
 
-    HPpoti: int = Stats(**Character.default_stats['hp']) * 0.75
+#     def __init__(self, hp_potion: int) -> None:
+#         self.stats = Stats(**Character.default_stats[hp_potion])
 
-test_poti = Stats('hp') + Items.HPpoti
-print(test_poti)
-    
-=======
-character_weapon = Weapons('dagger')
-print (character_weapon.dagger)
->>>>>>> Stashed changes
+#     HPpoti: int = Character() * 0.75
+
+# print()
+
+
+
+####### Randomizer for the CritRate Damage
+# class Attack:
+
+#     critrate = [1, 2, 3, 4, 5]
+
+#     def __init__(self) -> None:    
+#         self.critrate: int = choice(self.critrate)
+   
+
+# critic = Attack()
+# print(critic.critrate)
