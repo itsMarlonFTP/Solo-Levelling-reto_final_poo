@@ -35,7 +35,7 @@ match(answer):
             print("This class does not exist, please select a class existed")
         else:
             print()
-        if answer != "mage" "Mages":
+        if answer != "mage" "Mage":
             print("This class does not exist, please select a class existed")
         else:
             print()
