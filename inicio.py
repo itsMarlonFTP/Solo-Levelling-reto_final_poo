@@ -39,3 +39,11 @@ personaje_2 = Character('mage')
 personaje_2.stats.mana += 50 
 print(personaje_1.stats)
 print(personaje_2.stats)
+
+class Items: 
+
+    HPpoti: int = Stats(**Character.default_stats['hp']) * 0.75
+
+test_poti = Stats('hp') + Items.HPpoti
+print(test_poti)
+    
