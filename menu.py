@@ -26,7 +26,7 @@ system('cls')
 match(answer):
     case '1':
         sleep(delay)
-        print("Welcome to Solo Levelling Game, select you class")
+        print("Welcome Player, select you class")
         sleep(delay)
         print("\nWarrior \nMage \nHunter\n")
         answer= input()
