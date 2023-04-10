@@ -49,5 +49,5 @@ match(answer):
         
     case'3':
         sleep(delay)
-        print("Vuelva pronto")
+        print("Thanks for playing, see you later")
         sys.exit()
