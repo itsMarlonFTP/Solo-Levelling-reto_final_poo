@@ -5,8 +5,7 @@ class Damage:
         self.spells:int=spells
         self.objects:int=objects
 
-    def slash(self):
-        self.AttackSword = 1.5 * ()
+    
 
 class Stats:
 
@@ -17,7 +16,7 @@ class Stats:
         self.strength: int = options.get('strength', None) or 50
 
     def __repr__(self) -> str:
-        return f'HP: {self.hp}\nMana: {self.mana}\nPower: {self.power}\nStrength: {self.strength}'
+        return f'HP: {self.hp} \tMana: {self.mana} \tPower: {self.power} \tStrength: {self.strength}'
 
 
 class Character:
@@ -42,22 +41,14 @@ class Character:
         'skinwalker': {'claws': 0.6},
         'boss': {'scythe': 0.5},
     }
-        
-        
-class Weapons:
-    weapon_library = {
-        'dagger':1.3,
-        'shield':0.3,
-        'staff':1.3,
-        'sword':1.3
-    }
 
-personaje_1 = Character('mage')
-personaje_2 = Character('mage')
+if __name__ == '__main__':
+    personaje_1 = Character('mage')
+    personaje_2 = Character('mage')
 
-personaje_2.stats.mana += 50 
-print(personaje_1.stats)
-print(personaje_2.stats)
+    personaje_2.stats.mana += 50 
+    print(personaje_1.stats)
+    print(personaje_2.stats)
 # <<<<<<< Updated upstream
 
 # class Items: 

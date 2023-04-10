@@ -2,20 +2,23 @@ import sys
 from time import sleep
 from os import system
 from random import choice
+from inicio import Stats
+from inicio import Character
 
 print("----------Solo Leveling Game----------")
 delay = 1
 sleep(delay)
 
-class Attack:
+# Esto es una prueba para el ataque critico
+# class Attack:
 
-    critrate = [1, 2, 3, 4, 5]
+#   critrate = [1, 2, 3, 4, 5] 
 
-    def __init__(self) -> None:    
-        self.critrate: int = choice(self.critrate)
+#   def __init__(self) -> None:    
+#        self.critrate: int = choice(self.critrate)
    
-critic = Attack()
-print(critic.critrate)
+#critic = Attack()
+#print(critic.critrate)
 print("\nSelect the options")
 print("1.- New Game")
 print("2.- Options")
@@ -25,27 +28,30 @@ system('cls')
 
 match(answer):
     case '1':
-        sleep(delay)
-        print("Welcome Player, select you class")
-        sleep(delay)
-        print("\nWarrior \nMage \nHunter\n")
-        answer= input()
+
+        effect_sentences = {
+            'warrior': "Te gusta que te golpen",
+            'mage': "perfecto, ya sabia que te gustaban los palos",
+            'hunter': "okey wey ta chido hunter",
+        }
+
+        #print(Stats(**Character.default_stats['warrior']))
+
+        while True:
+            print("Welcome Player, select you class")
+            print(f"\nWarrior | {(Stats(**Character.default_stats['warrior']))} \nMage  |  {(Stats(**Character.default_stats['mage']))} \nHunter | {(Stats(**Character.default_stats['hunter']))} \n")
+            answer = input().lower()
+            if answer in effect_sentences:
+                system('cls')
+                print(f"YOU SELECTED {answer.upper()}\n")
+                print(f"{effect_sentences[answer]}\n\n")
+                break
+            else:
+                print('Please select a valid class')
         
-        if answer != "warrior" "Warrior":
-            print("This class does not exist, please select a class existed")
-        else:
-            print()
-        if answer != "mage" "Mage":
-            print("This class does not exist, please select a class existed")
-        else:
-            print()
-        if answer != "Hunter" "hunter":
-            print("This class does not exist, please select a class existed")
-        else:
-            print()
     case'2':
         sleep(delay)
-        print("I don't know what to put here c:")
+        print("Aqui en un futuro implementaremos la opcion de agregar buffs desde un inicio")
         
     case'3':
         sleep(delay)
