@@ -6,7 +6,7 @@ class Damage:
         self.objects:int=objects
 
     def slash(self):
-        self.AttackSword = 1.5 * Stats.Warrior()
+        self.AttackSword = 1.5 * ()
 
 class Stats:
 
@@ -23,16 +23,25 @@ class Stats:
 class Character:
 
     default_stats = {
-        'warrior': {},
+        'warrior': {'hp': 200},
         'hunter': {'hp':100, 'strength':100},
-        'mage': {'hp':125, 'mana':150, 'power':50, 'strength':15},
-        'goblin': {},
+        'mage': {'hp':150, 'mana':150, 'power':100, 'strength':15,},
+        'goblin': {'hp': 25},
         'skinwalker': {},
-        'boss': {'hp':300, 'mana':150, 'power':25, 'strength':100},
+        'boss': {'hp':300, 'mana':150, 'power':100, 'strength':75},
     }
 
     def __init__(self, character_type: str) -> None:
         self.stats = Stats(**Character.default_stats[character_type])
+    
+    default_weapons = {
+        'warrior': {'sword': 0.5, 'shield': 0.8},
+        'hunter': {'dagger': 0.5},
+        'mage': {'staff': 0.3},
+        'goblin': {'knife': 0.4},
+        'skinwalker': {'claws': 0.6},
+        'boss': {'scythe': 0.5},
+    }
         
         
 class Weapons:
@@ -40,12 +49,8 @@ class Weapons:
         'dagger':1.3,
         'shield':0.3,
         'staff':1.3,
-        'sword':1.3,
+        'sword':1.3
     }
-    dagger : int = 1.3 #esto es por cuanto se multiplicará cada arma por la fuerza, para esta misma incrementar el daño inflingido
-    shield : int = 0.3 #Aca puse 0.3 para que al recibir el ataque, el daño del ataque se multiplica por el valor de shield, reduciendo el valor, por lo tanto reduciendo el daño recibido
-    staff : int = 1.3  #esto es por cuanto se multiplicará cada arma por la fuerza, para esta misma incrementar el daño inflingido
-    sword : int = 1.3 #esto es por cuanto se multiplicará cada arma por la fuerza, para esta misma incrementar el daño inflingido
 
 personaje_1 = Character('mage')
 personaje_2 = Character('mage')
@@ -53,7 +58,7 @@ personaje_2 = Character('mage')
 personaje_2.stats.mana += 50 
 print(personaje_1.stats)
 print(personaje_2.stats)
-<<<<<<< Updated upstream
+# <<<<<<< Updated upstream
 
 # class Items: 
 
