@@ -1,10 +1,23 @@
 class Damage: 
-    def __init__(self,AttackSword, AttackSpell, spells, objects) -> None:
-        self.AttackSword:int=AttackSword
-        self.AttackSpell:int=AttackSpell
-        self.spells:int=spells
-        self.objects:int=objects
+    # def __init__(self,AttackSword, AttackSpell, spells, objects) -> None:
+    #     self.AttackSword:int=AttackSword
+    #     self.AttackSpell:int=AttackSpell
+    #     self.spells:int=spells
+    #     self.objects:int=objects
+    
+    prob_critrate = [1, 2, 3, 4, 5] # Esto es una prueba para el ataque critico
 
+    def __init__(self) -> None:    
+                self.prob_critrate: int = choice(self.prob_critrate)
+        
+prob_critic = Damage()
+if prob_critic != 5 :
+    critic = False
+else:
+    critic = True
+                            #print(critic.critrate)
+                            #print("Daño critico:")
+print(critic)
     
 
 class Stats:
