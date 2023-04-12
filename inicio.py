@@ -1,3 +1,4 @@
+from random import choices
 class Damage: 
     # def __init__(self,AttackSword, AttackSpell, spells, objects) -> None:
     #     self.AttackSword:int=AttackSword
@@ -5,19 +6,14 @@ class Damage:
     #     self.spells:int=spells
     #     self.objects:int=objects
     
-    prob_critrate = [1, 2, 3, 4, 5] # Esto es una prueba para el ataque critico
+    # crit_rate = [1, 2, 3, 4, 5] # Esto es una prueba para el ataque critico
 
     def __init__(self) -> None:    
-                self.prob_critrate: int = choice(self.prob_critrate)
+        self.is_critical: bool = choices(population=[0,1], cum_weights=[.6, 1])
         
-prob_critic = Damage()
-if prob_critic != 5 :
-    critic = False
-else:
-    critic = True
-                            #print(critic.critrate)
-                            #print("Daño critico:")
-print(critic)
+critic = Damage()
+
+print(critic.is_critical)
     
 
 class Stats:
