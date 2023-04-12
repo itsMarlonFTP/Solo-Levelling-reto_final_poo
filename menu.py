@@ -1,9 +1,9 @@
 import sys
-from time import sleep
 from os import system
 from random import choice
-from inicio import Stats
-from inicio import Character
+from time import sleep
+
+from inicio import Character, Stats
 
 print("----------Solo Leveling Game----------")
 delay = 1
@@ -29,11 +29,11 @@ system('cls')
 match(answer):
     case '1':
 
-        effect_sentences = {
-            'warrior': "Te gusta que te golpen",
-            'mage': "perfecto, ya sabia que te gustaban los palos",
-            'hunter': "okey wey ta chido hunter",
-        }
+        # effect_sentences = {
+        #     'warrior': "Your weapons: \n "+{Character.default_stats["warrior"]},
+        #     'mage': "perfecto, ya sabia que te gustaban los palos",
+        #     'hunter': "okey wey ta chido hunter",
+        # }
 
         #print(Stats(**Character.default_stats['warrior']))
 
@@ -41,10 +41,15 @@ match(answer):
             print("Welcome Player, select you class")
             print(f"\nWarrior | {(Stats(**Character.default_stats['warrior']))} \nMage  |  {(Stats(**Character.default_stats['mage']))} \nHunter | {(Stats(**Character.default_stats['hunter']))} \n")
             answer = input().lower()
-            if answer in effect_sentences:
+            if answer in Character.default_stats:
+                weapons = Character.default_stats[answer]['weapons']
                 system('cls')
                 print(f"YOU SELECTED {answer.upper()}\n")
-                print(f"{effect_sentences[answer]}\n\n")
+                print("Your weapons are: ")
+                print(*(weapon for weapon in weapons), sep='\n')
+                input('\n\nPulsa cualquier tecla para empezar tu aventura')
+                system('cls')
+                
                 break
             else:
                 print('Please select a valid class')

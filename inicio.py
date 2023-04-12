@@ -22,25 +22,36 @@ class Stats:
 class Character:
 
     default_stats = {
-        'warrior': {'hp': 200},
-        'hunter': {'hp':100, 'strength':100},
-        'mage': {'hp':150, 'mana':150, 'power':100, 'strength':15,},
-        'goblin': {'hp': 25},
-        'skinwalker': {},
-        'boss': {'hp':300, 'mana':150, 'power':100, 'strength':75},
+        'warrior': {
+            'stats': {'hp': 200},
+            'weapons': {'sword': 0.5, 'shield': 0.8}
+        },
+        'hunter':{
+            'stats': {'hp':100,'strength':100},
+            'weapons': {'dagger':0.5}
+        },
+        
+        'mage':{
+            'stats':{'hp':150,'mana':150,'power':100,'strength':15},
+            'weapons':{'staff':0.3}
+        } ,
+        'goblin':{
+            'stats':{'hp':25},
+            'weapons':{'knife':0.4}
+        },
+        'skinwalker': {
+            'stats':{},
+            'weapons':{'claws':0.6}
+        },
+        'boss': {
+            'stats':{'hp':300, 'mana':150, 'power':100, 'strength':75},
+            'weapons':{'scythe':0.5}
+        }
+
     }
 
     def __init__(self, character_type: str) -> None:
-        self.stats = Stats(**Character.default_stats[character_type])
-    
-    default_weapons = {
-        'warrior': {'sword': 0.5, 'shield': 0.8},
-        'hunter': {'dagger': 0.5},
-        'mage': {'staff': 0.3},
-        'goblin': {'knife': 0.4},
-        'skinwalker': {'claws': 0.6},
-        'boss': {'scythe': 0.5},
-    }
+        self.stats = Stats(**Character.default_stats[character_type]['stats'])
 
 if __name__ == '__main__':
     personaje_1 = Character('mage')
