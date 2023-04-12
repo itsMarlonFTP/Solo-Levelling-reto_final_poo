@@ -1,9 +1,8 @@
 import sys
-from time import sleep
 from os import system
-from random import choice 
-from inicio import Stats
-from inicio import Character
+from time import sleep
+
+from inicio import Character, Stats
 
 print("----------Solo Leveling Game----------")
 delay = 1
