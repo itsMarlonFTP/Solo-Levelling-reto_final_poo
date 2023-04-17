@@ -13,7 +13,7 @@ class Damage:
         
 critic = Damage()
 
-print(critic.is_critical)
+
     
 
 class Stats:
