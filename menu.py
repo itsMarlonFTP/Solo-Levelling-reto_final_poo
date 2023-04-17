@@ -45,6 +45,7 @@ match(answer):
                 print(f"YOU SELECTED {answer.upper()}\n")
                 print(f"{effect_sentences[answer]}\n\n")
                 break
+            
             else:
                 print('Please select a valid class')
         
