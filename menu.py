@@ -1,7 +1,8 @@
 import sys
 from os import system
 from time import sleep
-
+import random
+from random import choice
 from inicio import Character, Stats
 
 print("----------Solo Leveling Game----------")
@@ -47,9 +48,15 @@ match(answer):
                 print(*(weapon for weapon in weapons), sep='\n')
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
-                print("An Enemy has appeared, select an option!\n\n1. Attack()")
+                enemy = random.choice(['goblin','skinwalker'])
+                print(*(enemy),' has appeared, select an option!\n\n1. Attack()')
                 print("2. Defense\n3. Escape")
-                battleanswer=input()
+                
+                if enemy in Character.default_stats:
+                    hpenemy=Character.default_stats[enemy]['stats']
+                    print(*(hpenemy))
+                    battleanswer=input()
+                
                 break
             else:
                 print('Please select a valid class')
