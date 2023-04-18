@@ -47,7 +47,9 @@ match(answer):
                 print(*(weapon for weapon in weapons), sep='\n')
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
-
+                print("An Enemy has appeared, select an option!\n\n1. Attack()")
+                print("2. Defense\n3. Escape")
+                battleanswer=input()
                 break
             else:
                 print('Please select a valid class')
