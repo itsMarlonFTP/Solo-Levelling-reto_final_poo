@@ -61,9 +61,12 @@ match(answer):
                     print("\n\tYour stats")
                     print(player.stats)
                     battleanswer=input()
-                    if(battleanswer==1):
-                        print()
-                
+                    match(battleanswer):
+                        case '1':
+                            print(player.stats.hp)
+                            print(player.stats.power)
+                            print(player.stats.strength)
+                    break
                 break
             else:
                 print('Please select a valid class')
