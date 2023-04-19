@@ -41,6 +41,7 @@ match(answer):
             print(f"\nWarrior | {(Stats(**Character.default_stats['warrior']))} \nMage  |  {(Stats(**Character.default_stats['mage']))} \nHunter | {(Stats(**Character.default_stats['hunter']))} \n")
             answer = input().lower()
             if answer in Character.default_stats:
+                player=Character(answer)
                 weapons = Character.default_stats[answer]['weapons']
                 system('cls')
                 print(f"YOU SELECTED {answer.upper()}\n")
@@ -49,13 +50,19 @@ match(answer):
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
                 enemy = random.choice(['goblin','skinwalker'])
+                enemystats=Character(enemy)
+                system('cls')
                 print(*(enemy),' has appeared, select an option!\n\n1. Attack()')
                 print("2. Defense\n3. Escape")
                 
                 if enemy in Character.default_stats:
-                    hpenemy=Character.default_stats[enemy]['stats']
-                    print(*(hpenemy))
+                    print("\t\n"+enemy)
+                    print(enemystats.stats)
+                    print("\n\tYour stats")
+                    print(player.stats)
                     battleanswer=input()
+                    if(battleanswer==1):
+                        print()
                 
                 break
             else:
