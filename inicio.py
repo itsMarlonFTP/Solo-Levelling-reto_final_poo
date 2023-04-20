@@ -65,7 +65,7 @@ class Character:
 if __name__ == '__main__':
     personaje_1 = Character('mage')
     personaje_2 = Character('mage')
-
+    personaje_2.stats.hp -= 10
     personaje_2.stats.mana += 50 
     print(personaje_1.stats)
     print(personaje_2.stats)

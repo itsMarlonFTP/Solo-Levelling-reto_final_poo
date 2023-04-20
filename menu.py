@@ -49,25 +49,27 @@ match(answer):
                 print(*(weapon for weapon in weapons), sep='\n')
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
-                enemy = random.choice(['goblin','skinwalker'])
-                enemystats=Character(enemy)
-                system('cls')
-                print(*(enemy),' has appeared, select an option!\n\n1. Attack()')
-                print("2. Defense\n3. Escape")
                 
+                enemy = random.choice(['goblin','skinwalker'])
                 if enemy in Character.default_stats:
-                    print("\t\n"+enemy)
-                    print(enemystats.stats)
-                    print("\n\tYour stats")
-                    print(player.stats)
-                    battleanswer=input()
-                    match(battleanswer):
-                        case '1':
-                            print(player.stats.hp)
-                            print(player.stats.power)
-                            print(player.stats.strength)
-                    break
+                    enemystats=Character(enemy)
+                    while (enemystats.stats.hp>0):
+                        system('cls')
+                        #while enemy.stats.hp < 0:
+                        print(*(enemy),' has appeared, select an option!\n\n1. Attack()')
+                        print("2. Defense\n3. Escape")
+                        print("\t\n"+enemy)
+                        print(enemystats.stats)
+                        print("\n\tYour stats")
+                        print(player.stats)
+                        battleanswer=input()
+                        match(battleanswer):
+                            case '1':
+                                enemystats.stats.hp -= 10
+                                print(enemystats.stats.hp)
+                        
                 break
+                
             else:
                 print('Please select a valid class')
         
