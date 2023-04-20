@@ -60,14 +60,17 @@ match(answer):
                         print("2. Defense\n3. Escape")
                         print("\t\n"+enemy)
                         print(enemystats.stats)
-                        print("\n\tYour stats")
+                        print("\n\n\tYour stats")
                         print(player.stats)
                         battleanswer=input()
                         match(battleanswer):
                             case '1':
                                 enemystats.stats.hp -= 10
-                                print(enemystats.stats.hp)
-                        
+                                print('--------------------------------------------------------------------------')
+                            case '2':
+                                print()
+                        print('--------------------------------------------------------------------------')
+                            
                 break
                 
             else:
