@@ -49,7 +49,7 @@ class Character:
             'weapons':{'knife':0.4}
         },
         'skinwalker': {
-            'stats':{},
+            'stats':{'hp':50},
             'weapons':{'claws':0.6}
         },
         'boss': {

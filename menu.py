@@ -3,7 +3,8 @@ from os import system
 from time import sleep
 import random
 from random import choice
-from inicio import Character, Stats
+from random import choices
+from inicio import Character, Stats, Damage
 
 print("----------Solo Leveling Game----------")
 delay = 1
@@ -55,21 +56,30 @@ match(answer):
                     enemystats=Character(enemy)
                     while (enemystats.stats.hp>0):
                         system('cls')
+                        print(*(enemy),' has appeared')
                         #while enemy.stats.hp < 0:
-                        print(*(enemy),' has appeared, select an option!\n\n1. Attack()')
+                        print('Select an option!\n\n1. Attack()')
                         print("2. Defense\n3. Escape")
-                        print("\t\n"+enemy)
+                        print("\n\n\t" + enemy.upper())
                         print(enemystats.stats)
-                        print("\n\n\tYour stats")
+                        print("\n\n      YOUR STATS")
                         print(player.stats)
                         battleanswer=input()
                         match(battleanswer):
                             case '1':
-                                enemystats.stats.hp -= 10
+                                enemystats.stats.hp -= 10 * Character.default_stats('strenght') * weapons
                                 print('--------------------------------------------------------------------------')
                             case '2':
                                 print()
-                        print('--------------------------------------------------------------------------')
+                            case '3':
+                                print()
+                                if Damage.escape is False:
+                                    print('¡¡You failed to escape!!')
+                                else:
+                                    print("¡¡You managed to escape safely!!")
+                                    break
+                                
+
                             
                 break
                 
