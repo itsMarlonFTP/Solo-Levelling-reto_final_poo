@@ -65,10 +65,12 @@ match(answer):
                         print("\n\n      YOUR STATS")
                         print(player.stats)
                         battleanswer=input()
+                        
+                        
                         match(battleanswer):
                             case '1':
-                                enemystats.stats.hp -= 10 * Character.default_stats('strenght') * weapons
-                                print('--------------------------------------------------------------------------')
+                                enemystats.stats.hp -= 10
+                                
                             case '2':
                                 print()
                             case '3':
@@ -78,6 +80,11 @@ match(answer):
                                 else:
                                     print("¡¡You managed to escape safely!!")
                                     break
+                        print('el enemigo te ha atacado, has perdido: ')
+                        player.stats.hp= player.stats.hp - enemystats.stats.strength
+                        print('Pulsa cualquier tecla para continuar')
+                        input()
+                        print('..................................................................................')
                                 
 
                             
