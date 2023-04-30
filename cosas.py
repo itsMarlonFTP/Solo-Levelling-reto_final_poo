@@ -27,16 +27,24 @@ class Character:
         print(self.name, "has died")
 
     def damage(self, enemy):
-        return self.strenght - enemy.defense
+        if self.strenght > enemy.defense:
+            return self.strenght - enemy.defense
+        else:
+            return 0
 
     def attack(self, enemy):
         damage = self.damage(enemy)
-        enemy.hp = enemy.hp - damage
-        print(self.name, "has done", damage, "damage point to", enemy.name)
-        if enemy.is_alive():
-            print("The hp of", enemy.name, "is", enemy.hp)
+        if damage > 0:
+            enemy.hp = enemy.hp - damage
+            print(self.name, "has done", damage, "damage point to", enemy.name)
+            if enemy.is_alive():
+                print("The hp of", enemy.name, "is", enemy.hp)
+            else:
+                enemy.died()
         else:
-            enemy.died()
+            print(self.name, "has done", self.strenght, "damage points to the armor of", enemy.name)
+            enemy.defense = enemy.defense - self.strenght
+            print("The armor of", enemy.name, "is", enemy.defense)
 
 class Warrior(Character):
     
@@ -71,8 +79,24 @@ class Mage(Character):
         print("·book:", self.book)
 
     def damage(self, enemy):
-        return self.inteligence*self.book - enemy.defense
+        if self.inteligence*self.book > enemy.defense:
+            return self.inteligence*self.book - enemy.defense
+        else:
+            return 0
 
+    def attack(self, enemy):
+        damage = self.damage(enemy)
+        if damage > 0:
+            enemy.hp = enemy.hp - damage
+            print(self.name, "has done", damage, "damage point to", enemy.name)
+            if enemy.is_alive():
+                print("The hp of", enemy.name, "is", enemy.hp)
+            else:
+                enemy.died()
+        else:
+            print(self.name, "has done", self.inteligence*self.book, "damage points to the armor of", enemy.name)
+            enemy.defense = enemy.defense - self.inteligence*self.book
+            print("The armor of", enemy.name, "is", enemy.defense)
 
 def combat(player_1, player_2):
     turn = 1
@@ -91,7 +115,7 @@ def combat(player_1, player_2):
         print("\nIt's a tie")
 
 Character_1 = Warrior("Guts", 20, 10, 4, 100, 4)
-Character_2 = Mage("Vanessa", 5, 15, 4, 100, 3)
+Character_2 = Mage("Vanessa", 5, 15, 4, 100, 4)
 
 Character_1.attributes()
 Character_2.attributes()      
