@@ -104,7 +104,11 @@ def combat(player_1, player_2):
         print("\nturn", turn)
         print(">>> Action from ", player_1.name,":", sep="")
         player_1.attack(player_2)
+        if player_2.hp == 0:
+            break
         print(">>> Action from ", player_2.name,":", sep="")
+        if player_1.hp == 0:
+            break
         player_2.attack(player_1)
         turn = turn + 1
     if player_1.is_alive():
