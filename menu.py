@@ -69,7 +69,7 @@ match(answer):
                         
                         match(battleanswer):
                             case '1':
-                                enemystats.stats.hp -= player.default_stats[player]['weapons'][]
+                                enemystats.stats.hp -= player.default_stats[answer]['weaponattack']
                                 
                             case '2':
                                 print()

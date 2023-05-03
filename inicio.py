@@ -33,28 +33,34 @@ class Character:
     default_stats = {
         'warrior': {
             'stats': {'hp': 200},
-            'weapons': {'sword': 0.5, 'shield': 0.8}
+            'weapons': {'sword': 0.5},
+            'weaponattack':{0.5}
         },
         'hunter':{
             'stats': {'hp':100,'strength':100},
-            'weapons': {'dagger':0.5}
+            'weapons': {'dagger'},
+            'weaponattack':{0.5}
         },
         
         'mage':{
             'stats':{'hp':150,'mana':150,'power':100,'strength':15},
-            'weapons':{'staff':0.3}
+            'weapons':{'staff':0.3},
+            'weaponattack':{0.3}
         } ,
         'goblin':{
             'stats':{'hp':25},
-            'weapons':{'knife':0.4}
+            'weapons':{'knife':0.4},
+            'weaponattack':{0.4}
         },
         'skinwalker': {
             'stats':{'hp':50},
-            'weapons':{'claws':0.6}
+            'weapons':{'claws':0.6},
+            'weaponattack':{0.6}
         },
         'boss': {
             'stats':{'hp':300, 'mana':150, 'power':100, 'strength':75},
-            'weapons':{'scythe':0.5}
+            'weapons':{'scythe':0.5},
+            'weaponattack':{0.5}
         }
 
     }
@@ -67,7 +73,7 @@ if __name__ == '__main__':
     personaje_2 = Character('mage')
     personaje_2.stats.hp -= 10
     personaje_2.stats.mana += 50 
-    print(5* Character.default_stats['boss']['weapons']{})
+    #print(Character.default_stats[personaje_1]['weaponattack'])
     print(personaje_2.stats)
 # <<<<<<< Updated upstream
 
