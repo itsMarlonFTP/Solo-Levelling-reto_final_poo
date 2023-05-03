@@ -72,7 +72,9 @@ match(answer):
                                 #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
                                 print("hola")
                                 print(player.default_stats[answer]['weaponattack'])
-                                weaponsattack = int(player.default_stats[answer]['weaponattack'])
+                                int(len(player.default_stats[answer]['weaponattack']))
+
+                                weaponsattack = int()
                                 
                                 damagedifference = (player.stats.strength*weaponsattack)
                                 enemystats.stats.hp = enemystats.stats.hp - damagedifference
