@@ -69,7 +69,14 @@ match(answer):
                         
                         match(battleanswer):
                             case '1':
-                                enemystats.stats.hp -= player.default_stats[answer]['weaponattack']
+                                #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
+                                print("hola")
+                                print(player.default_stats[answer]['weaponattack'])
+                                weaponsattack = int(player.default_stats[answer]['weaponattack'])
+                                
+                                damagedifference = (player.stats.strength*weaponsattack)
+                                enemystats.stats.hp = enemystats.stats.hp - damagedifference
+                                #enemystats.stats.hp = enemystats.stats.hp - (player.stats.strength * player.default_stats[answer]['weaponattack'])
                                 
                             case '2':
                                 print()
@@ -81,7 +88,7 @@ match(answer):
                                     print("¡¡You managed to escape safely!!")
                                     break
                         
-                        print('el enemigo te ha atacado, has perdido: ')
+                        print('el enemigo te ha atacado, has perdido: ', damagedifference)
                         player.stats.hp= player.stats.hp - enemystats.stats.strength
                         print('Pulsa cualquier tecla para continuar')
                         input()
