@@ -56,7 +56,8 @@ match(answer):
                 if enemy in Character.default_stats:
                     enemystats=Character(enemy)
                     while (enemystats.stats.hp>0):
-                        system('cls')
+                        
+                        print('..................................................................................')
                         print(*(enemy),' has appeared')
                         #while enemy.stats.hp < 0:
                         print('Select an option!\n\n1. Attack()')
@@ -90,11 +91,10 @@ match(answer):
                         
                         print("Le has quitado al enemigo", herodamagedifference)
                         print('el enemigo te ha atacado, has perdido: ', damagedifference)
-                        print(enemystats.stats.strength)
-                        print(enemystats.default_stats[enemy]['weaponattack'])
+    
                         print('Pulsa cualquier tecla para continuar')
                         input()
-                        print('..................................................................................')
+                        
                                 
 
                             

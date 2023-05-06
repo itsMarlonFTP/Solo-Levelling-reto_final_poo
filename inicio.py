@@ -48,12 +48,12 @@ class Character:
             'weaponattack':0.3
         } ,
         'goblin':{
-            'stats':{'hp':25},
+            'stats':{'hp':50},
             'weapons':{'knife':0.4},
             'weaponattack':0.4
         },
         'skinwalker': {
-            'stats':{'hp':50},
+            'stats':{'hp':100},
             'weapons':{'claws':0.6},
             'weaponattack':0.6
         },
