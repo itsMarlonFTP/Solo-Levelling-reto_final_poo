@@ -52,6 +52,7 @@ match(answer):
                 system('cls')
                 
                 enemy = random.choice(['goblin','skinwalker'])
+                
                 if enemy in Character.default_stats:
                     enemystats=Character(enemy)
                     while (enemystats.stats.hp>0):
@@ -71,17 +72,14 @@ match(answer):
                             case '1':
                                 #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
                                 print("hola")
-                                print(player.default_stats[answer]['weaponattack'])
-                                int(len(player.default_stats[answer]['weaponattack']))
+                                herodamagedifference = (player.stats.strength * player.default_stats[answer]['weaponattack'])
+                                enemystats.stats.hp = enemystats.stats.hp - herodamagedifference
 
-                                weaponsattack = int()
-                                
-                                damagedifference = (player.stats.strength*weaponsattack)
-                                enemystats.stats.hp = enemystats.stats.hp - damagedifference
-                                #enemystats.stats.hp = enemystats.stats.hp - (player.stats.strength * player.default_stats[answer]['weaponattack'])
-                                
+                                damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
+                                player.stats.hp = player.stats.hp - damagedifference
                             case '2':
-                                print()
+                                print('Defensa')
+                                
                             case '3':
                                 print()
                                 if Damage.escape is False:
@@ -90,8 +88,10 @@ match(answer):
                                     print("¡¡You managed to escape safely!!")
                                     break
                         
+                        print("Le has quitado al enemigo", herodamagedifference)
                         print('el enemigo te ha atacado, has perdido: ', damagedifference)
-                        player.stats.hp= player.stats.hp - enemystats.stats.strength
+                        print(enemystats.stats.strength)
+                        print(enemystats.default_stats[enemy]['weaponattack'])
                         print('Pulsa cualquier tecla para continuar')
                         input()
                         print('..................................................................................')
