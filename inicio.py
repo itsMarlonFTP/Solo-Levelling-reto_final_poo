@@ -14,6 +14,13 @@ class Damage:
     def escape(self) -> None:
         self.is_escape: bool = choices(population=[0,1], cum_weights=[.3, 1])
 
+    def drop(self, drop_item) -> None:
+        self.drop_item = choices(population=[0,1], cum_weights=[.3, 1])
+        return print('Drop', self.drop_item, 'items')
+
+print(Damage.drop)
+
+
 
 
     
@@ -97,8 +104,8 @@ if __name__ == '__main__':
 
     resultado = datos["clave1"] * factor
 
-    print(resultado)
-    print(personaje_2.default_stats.defense)
+    # print(resultado)
+    # print(personaje_2.default_stats.defense)
 
 
 

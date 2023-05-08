@@ -10,16 +10,6 @@ print("----------Solo Leveling Game----------")
 delay = 1
 sleep(delay)
 
-# Esto es una prueba para el ataque critico
-# class Attack:
-
-#   critrate = [1, 2, 3, 4, 5] 
-
-#   def __init__(self) -> None:    
-#        self.critrate: int = choice(self.critrate)
-   
-#critic = Attack()
-#print(critic.critrate)
 print("\nSelect the options")
 print("1.- New Game")
 print("2.- Options")
@@ -57,13 +47,13 @@ match(answer):
                     if player.is_alive or i > 3:
                         enemy = random.choice(['goblin','skinwalker'])
                         if enemy in Character.default_stats:
-                            enemystats=Character(enemy)
+                            enemystats = Character(enemy)
                             print('..................................................................................')
                             print(*(enemy),' has appeared')
                             while (enemystats.stats.hp>0):
                             
                                 print('PHASE', phase)
-                                print('Select an option!\n\n1. Attack()')
+                                print('Select an action!!!\n\n1. Attack()')
                                 print("2. Defense\n3. Items\n4. Escape")
                                 print("\n\n\t" + enemy.upper())
                                 print(enemystats.stats)
