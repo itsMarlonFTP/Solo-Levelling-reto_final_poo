@@ -73,36 +73,49 @@ match(answer):
                                         
                                 match(battleanswer):
                                     case '1':
+                                        if Damage.critic == 0:
+                                            critic = player.default_stats[answer]['weaponattack']
+                                        else: 
+                                            critic = player.default_stats[answer]['weaponattack'] + 0.2
                                         #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
-                                        herodamagedifference = (player.stats.strength * player.default_stats[answer]['weaponattack'])
+                                        herodamagedifference = (player.stats.strength * critic)
                                         enemystats.stats.hp = enemystats.stats.hp - herodamagedifference
-
-                                        if enemystats.stats.hp < 0:
-                                            break
 
                                         damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
                                         player.stats.hp = player.stats.hp - damagedifference
                                         
                                         if player.stats.hp < 0:
                                             break
+
+                                        if enemystats.stats.hp < 0:
+                                            break
+
+                                        print("\nYou have done", herodamagedifference, 'damage to', enemy)
+                                        print(enemy, 'has done', damagedifference, 'damage to you\n')
+
+
                                     case '2':
+                                        # if player != Character['warrior']:
+                                        #     print('Oh sorry, only class warrior can use defense')
+                                        # else:
+                                        #     damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
+                                        #     player.stats.hp = player.stats.hp - damagedifference
                                         print('Defensa')
                                                             
                                     case '3':
                                         print()
-                                        if Damage.escape is False:
+                                        if Damage.escape == 0:
                                             print('¡¡You failed to escape!!')
                                         else:
                                             print("¡¡You managed to escape safely!!")
-                                            break
+                                            sys.exit() 
                                                     
-                                print("\nYou have done", herodamagedifference, 'damage to', enemy)
-                                print(enemy, 'has done', damagedifference, 'damage to you\n')
-
                             if enemystats.is_alive():
-                                print('YOU DIED, ¿try again?')
-                            if player.is_alive():
-                                print('¡¡', enemy, 'has been slain, keep going!!')
+                                print('YOU DIED')
+                                sys.exit() 
+                            elif player.is_alive():
+                                print('¡¡', enemy, 'has been slain, keep going!!')   
+                            
 
                 
                 print('BOSS PHASE \n Prepare for the fight -------------------')

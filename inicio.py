@@ -8,10 +8,12 @@ class Damage:
     
     # crit_rate = [1, 2, 3, 4, 5] # Esto es una prueba para el ataque critico
 
-    def __init__(self) -> None:    
+    def critic(self) -> None:    
         self.is_critical: bool = choices(population=[0,1], cum_weights=[.6, 1])
-        
-critic = Damage()
+    
+    def escape(self) -> None:
+        self.is_escape: bool = choices(population=[0,1], cum_weights=[.3, 1])
+
 
 
     
