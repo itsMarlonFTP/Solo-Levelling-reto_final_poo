@@ -3,7 +3,7 @@ from os import system
 from time import sleep
 import random
 from random import choice, choices
-from inicio import Character, Stats, Damage
+from inicio import Character, Stats, Damage,Items
 
 system('cls')
 print("----------Solo Leveling Game----------")
@@ -48,6 +48,7 @@ match(answer):
                 print(f"YOU SELECTED {answer.upper()}\n")
                 print("Your weapons are: ")
                 print(*(weapon for weapon in weapons), sep='\n')
+                
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
                 
@@ -60,10 +61,10 @@ match(answer):
                             print('..................................................................................')
                             print(*(enemy),' has appeared')
                             while (enemystats.stats.hp>0):
-                            #while enemy.stats.hp < 0:
+                            
                                 print('PHASE', phase)
                                 print('Select an option!\n\n1. Attack()')
-                                print("2. Defense\n3. Escape")
+                                print("2. Defense\n3. Items\n4. Escape")
                                 print("\n\n\t" + enemy.upper())
                                 print(enemystats.stats)
                                 print("\n\n      YOUR STATS")
@@ -95,28 +96,38 @@ match(answer):
 
 
                                     case '2':
-                                        # if player != Character['warrior']:
-                                        #     print('Oh sorry, only class warrior can use defense')
-                                        # else:
-                                        #     damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
-                                        #     player.stats.hp = player.stats.hp - damagedifference
-                                        print('Defensa')
-                                                            
+                                         if answer == 'warrior':
+                                             damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])* player.default_stats['warrior']['shield']
+                                             player.stats.hp = player.stats.hp - damagedifference
+                                             print(enemy, 'has done', damagedifference, 'damage to you\n')
+                                         else:
+                                             print('Oh sorry, only class warrior can use defense')
+                                             damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
+                                             player.stats.hp = player.stats.hp - damagedifference
+                                             print(enemy, 'has done', damagedifference, 'damage to you\n')
+                                    
                                     case '3':
+                                        if  Items.items == 0:
+                                            print('You do not have items')
+                                        else:
+                                            print()
+                                    case '4':
                                         print()
                                         if Damage.escape == 0:
                                             print('¡¡You failed to escape!!')
                                         else:
                                             print("¡¡You managed to escape safely!!")
-                                            sys.exit() 
-                                                    
-                            if enemystats.is_alive():
-                                print('YOU DIED')
-                                sys.exit() 
-                            elif player.is_alive():
-                                print('¡¡', enemy, 'has been slain, keep going!!')   
+                                            sys.exit()
+                                
+                        if enemystats.is_alive():
+                            print('YOU DIED')
+                            sys.exit() 
+                        elif player.is_alive():
+                            print('¡¡', enemy, 'has been slain, keep going!!')   
+                        if player.stats.hp > 50:
+                            print("Congratulations, you just earn a heatlh potion")
+                            Items.items + 1
                             
-
                 
                 print('BOSS PHASE \n Prepare for the fight -------------------')
                 input()

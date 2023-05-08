@@ -36,9 +36,10 @@ class Character:
 
     default_stats = {
         'warrior': {
-            'stats': {'hp': 200},
+            'stats': {'hp': 200,},
             'weapons': {'sword': 0.5},
-            'weaponattack':0.5
+            'weaponattack':0.5,
+            'shield':0.3
         },
         'hunter':{
             'stats': {'hp':100,'strength':100},
@@ -79,7 +80,8 @@ class Character:
         self.stats.hp = 0
         print("has died")
 
-
+class Items:
+    items= 0
 
 if __name__ == '__main__':
     personaje_1 = Character('mage')
@@ -96,6 +98,7 @@ if __name__ == '__main__':
     resultado = datos["clave1"] * factor
 
     print(resultado)
+    print(personaje_2.default_stats.defense)
 
 
 
