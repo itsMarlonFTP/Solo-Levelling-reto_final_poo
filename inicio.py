@@ -8,8 +8,8 @@ class Damage:
     
     # crit_rate = [1, 2, 3, 4, 5] # Esto es una prueba para el ataque critico
 
-    def critic(self) -> None:    
-        self.is_critical: bool = choices(population=[0,1], cum_weights=[.6, 1])
+    def crit(self) -> None:    
+        self.is_critical: bool = choices(population=[False,True], cum_weights=[.6, 1])
     
     def escape(self) -> None:
         self.is_escape: bool = choices(population=[0,1], cum_weights=[.3, 1])
@@ -18,7 +18,8 @@ class Damage:
         self.drop_item = choices(population=[0,1], cum_weights=[.3, 1])
         return print('Drop', self.drop_item, 'items')
 
-print(Damage.drop)
+# critic = Damage()
+# print(critic.is_critical)
 
 
 
@@ -37,7 +38,6 @@ class Stats:
         return f'HP: {self.hp} \tMana: {self.mana} \tPower: {self.power} \tStrength: {self.strength}'
     
     
-
 
 class Character:
 
@@ -69,9 +69,14 @@ class Character:
             'weapons':{'claws':0.6},
             'weaponattack':0.6
         },
-        'boss': {
-            'stats':{'hp':300, 'mana':150, 'power':100, 'strength':75},
-            'weapons':{'scythe':0.5},
+        'beru': {
+            'stats':{'hp':150, 'mana':150, 'power':100, 'strength':75},
+            'weapons':{'claws':0.5},
+            'weaponattack':0.5
+        },
+        'igris': {
+            'stats':{'hp':175, 'mana':150, 'power':100, 'strength':60},
+            'weapons':{'big sword':0.5},
             'weaponattack':0.5
         }
 
