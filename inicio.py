@@ -26,6 +26,8 @@ class Stats:
 
     def __repr__(self) -> str:
         return f'HP: {self.hp} \tMana: {self.mana} \tPower: {self.power} \tStrength: {self.strength}'
+    
+    
 
 
 class Character:
@@ -53,7 +55,7 @@ class Character:
             'weaponattack':0.4
         },
         'skinwalker': {
-            'stats':{'hp':100},
+            'stats':{'hp':70},
             'weapons':{'claws':0.6},
             'weaponattack':0.6
         },
@@ -67,6 +69,15 @@ class Character:
 
     def __init__(self, character_type: str) -> None:
         self.stats = Stats(**Character.default_stats[character_type]['stats'])
+    
+    def is_alive(self):
+        return self.stats.hp > 0 
+
+    def died(self):
+        self.stats.hp = 0
+        print("has died")
+
+
 
 if __name__ == '__main__':
     personaje_1 = Character('mage')

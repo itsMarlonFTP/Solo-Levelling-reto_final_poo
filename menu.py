@@ -2,10 +2,10 @@ import sys
 from os import system
 from time import sleep
 import random
-from random import choice
-from random import choices
+from random import choice, choices
 from inicio import Character, Stats, Damage
 
+system('cls')
 print("----------Solo Leveling Game----------")
 delay = 1
 sleep(delay)
@@ -23,7 +23,7 @@ sleep(delay)
 print("\nSelect the options")
 print("1.- New Game")
 print("2.- Options")
-print("3.- Exit")
+print("3.- Exit \n")
 answer = input()
 system('cls')
 
@@ -37,9 +37,9 @@ match(answer):
 
         #print(Stats(**Character.default_stats['warrior']))
 
-        while True:
+        
             print("Welcome Player, select you class")
-            print(f"\nWarrior | {(Stats(**Character.default_stats['warrior']))} \nMage  |  {(Stats(**Character.default_stats['mage']))} \nHunter | {(Stats(**Character.default_stats['hunter']))} \n")
+            print(f"\nWarrior | {(Stats(**Character.default_stats['warrior']['stats']))} \nMage  |  {(Stats(**Character.default_stats['mage']['stats']))} \nHunter | {(Stats(**Character.default_stats['hunter']['stats']))} \n")
             answer = input().lower()
             if answer in Character.default_stats:
                 player=Character(answer)
@@ -51,58 +51,69 @@ match(answer):
                 input('\n\nPulsa cualquier tecla para empezar tu aventura')
                 system('cls')
                 
-                enemy = random.choice(['goblin','skinwalker'])
-                
-                if enemy in Character.default_stats:
-                    enemystats=Character(enemy)
-                    while (enemystats.stats.hp>0):
-                        
-                        print('..................................................................................')
-                        print(*(enemy),' has appeared')
-                        #while enemy.stats.hp < 0:
-                        print('Select an option!\n\n1. Attack()')
-                        print("2. Defense\n3. Escape")
-                        print("\n\n\t" + enemy.upper())
-                        print(enemystats.stats)
-                        print("\n\n      YOUR STATS")
-                        print(player.stats)
-                        battleanswer=input()
-                        
-                        
-                        match(battleanswer):
-                            case '1':
-                                #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
-                                print("hola")
-                                herodamagedifference = (player.stats.strength * player.default_stats[answer]['weaponattack'])
-                                enemystats.stats.hp = enemystats.stats.hp - herodamagedifference
+                for i in range(1, 4):
+                    phase = i
+                    if player.is_alive or i > 3:
+                        enemy = random.choice(['goblin','skinwalker'])
+                        if enemy in Character.default_stats:
+                            enemystats=Character(enemy)
+                            print('..................................................................................')
+                            print(*(enemy),' has appeared')
+                            while (enemystats.stats.hp>0):
+                            #while enemy.stats.hp < 0:
+                                print('PHASE', phase)
+                                print('Select an option!\n\n1. Attack()')
+                                print("2. Defense\n3. Escape")
+                                print("\n\n\t" + enemy.upper())
+                                print(enemystats.stats)
+                                print("\n\n      YOUR STATS")
+                                print(player.stats)
+                                battleanswer=input()
+                                        
+                                        
+                                match(battleanswer):
+                                    case '1':
+                                        #player.default_stats[str(answer)]['weaponattack'] -= len(Character.default_stats)
+                                        herodamagedifference = (player.stats.strength * player.default_stats[answer]['weaponattack'])
+                                        enemystats.stats.hp = enemystats.stats.hp - herodamagedifference
 
-                                damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
-                                player.stats.hp = player.stats.hp - damagedifference
-                            case '2':
-                                print('Defensa')
-                                
-                            case '3':
-                                print()
-                                if Damage.escape is False:
-                                    print('¡¡You failed to escape!!')
-                                else:
-                                    print("¡¡You managed to escape safely!!")
-                                    break
-                        
-                        print("Le has quitado al enemigo", herodamagedifference)
-                        print('el enemigo te ha atacado, has perdido: ', damagedifference)
-    
-                        print('Pulsa cualquier tecla para continuar')
-                        input()
-                        
-                                
+                                        if enemystats.stats.hp < 0:
+                                            break
 
-                            
-                break
+                                        damagedifference = (enemystats.stats.strength * enemystats.default_stats[enemy]['weaponattack'])
+                                        player.stats.hp = player.stats.hp - damagedifference
+                                        
+                                        if player.stats.hp < 0:
+                                            break
+                                    case '2':
+                                        print('Defensa')
+                                                            
+                                    case '3':
+                                        print()
+                                        if Damage.escape is False:
+                                            print('¡¡You failed to escape!!')
+                                        else:
+                                            print("¡¡You managed to escape safely!!")
+                                            break
+                                                    
+                                print("\nYou have done", herodamagedifference, 'damage to', enemy)
+                                print(enemy, 'has done', damagedifference, 'damage to you\n')
+
+                            if enemystats.is_alive():
+                                print('YOU DIED, ¿try again?')
+                            if player.is_alive():
+                                print('¡¡', enemy, 'has been slain, keep going!!')
+
                 
+                print('BOSS PHASE \n Prepare for the fight -------------------')
+                input()
+
+
+            
+
             else:
                 print('Please select a valid class')
-        
+            
     case'2':
         sleep(delay)
         print("Aqui en un futuro implementaremos la opcion de agregar buffs desde un inicio")
@@ -111,3 +122,4 @@ match(answer):
         sleep(delay)
         print("Thanks for playing, see you later")
         sys.exit()
+
