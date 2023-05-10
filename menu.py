@@ -90,7 +90,7 @@ def start_game():
                             round = round + 1
                         case '2':
                             if classanswer == 'warrior':
-                                damagedifference = (enemy.stats.strength * enemy.default_stats[enemy]['weaponattack'])* player.default_stats['warrior']['shield']
+                                damagedifference = (enemy.stats.strength * enemy.default_stats[enemy_name]['weaponattack'])* player.default_stats['warrior']['shield']
                                 player.stats.hp = player.stats.hp - damagedifference
                                 print(enemy, 'has done', damagedifference, 'damage to you\n')
                             else:
@@ -100,7 +100,7 @@ def start_game():
                                 print(enemy, 'has done', damagedifference, 'damage to you\n')
                 
                         case '3':
-                            if  Items.items == 0:
+                            if  Items.items < 0:
                                 print('You do not have items')
                             else:
                                 player.stats.hp += 100
@@ -118,7 +118,7 @@ def start_game():
                 sys.exit() 
             elif player.is_alive():
                 print('¡¡', enemy, 'has been slain, keep going!!')   
-            if player.stats.hp > 50:
+            if player.stats.hp > 70:
                 print("Congratulations, you just earn a heatlh potion")
                 Items.items += 1
         
@@ -169,17 +169,17 @@ def start_game():
 
                 case '2':
                         if classanswer == 'warrior':
-                            damagedifference = (enemy.stats.strength * enemy.default_stats[enemy]['weaponattack'])* player.default_stats['warrior']['shield']
+                            damagedifference = (enemy.stats.strength * enemy.default_stats[enemy_name]['weaponattack'])* player.default_stats['warrior']['shield']
                             player.stats.hp = player.stats.hp - damagedifference
                             print(enemy, 'has done', damagedifference, 'damage to you\n')
                         else:
                             print('Oh sorry, only class warrior can use defense')
-                            damagedifference = (enemy.stats.strength * enemy.default_stats[enemy]['weaponattack'])
+                            damagedifference = (enemy.stats.strength * enemy.default_stats[enemy_name]['weaponattack'])
                             player.stats.hp = player.stats.hp - damagedifference
                             print(enemy, 'has done', damagedifference, 'damage to you\n')
                 
                 case '3':
-                    if  Items.items == 0:
+                    if  Items.items < 0:
                         print('You do not have items')
                     else:
                         player.stats.hp += 100
@@ -197,7 +197,7 @@ def start_game():
                 sys.exit() 
             elif player.is_alive():
                 print('¡¡', boss, 'has been slain, keep going!!')   
-            if player.stats.hp > 50:
+            if player.stats.hp > 70:
                 print("Congratulations, you just earn a heatlh potion")
                 Items.items += 1
         
