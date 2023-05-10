@@ -1,16 +1,4 @@
 from random import choices
-class Damage: 
-    
-    def critic(self) -> None:    
-        self.is_critical: bool = choices(population=[False,True], cum_weights=[.6, 1])
-    
-    def escape(self) -> None:
-        self.is_escape: bool = choices(population=[0,1], cum_weights=[.3, 1])
-
-    def drop(self) -> None:
-        self.drop_item = choices(population=[0,1], cum_weights=[.3, 1])
-        return print('Drop', self.drop_item, 'items')
-
 
 class Stats:
 
@@ -60,7 +48,7 @@ class Character:
             'weaponattack':0.5
         },
         'igris': {
-            'stats':{'hp':175, 'mana':150, 'power':100, 'strength':60},
+            'stats':{'hp':175, 'mana':150, 'power':100, 'strength':70},
             'weapons':{'big sword':0.5},
             'weaponattack':0.5
         }
@@ -68,6 +56,10 @@ class Character:
 
     def __init__(self, character_type: str) -> None:
         self.stats = Stats(**Character.default_stats[character_type]['stats'])
+        self.name = character_type.title()
+    
+    def __str__(self) -> str:
+        return self.name
     
     def is_alive(self):
         return self.stats.hp > 0 
@@ -75,6 +67,28 @@ class Character:
     def died(self):
         self.stats.hp = 0
         print("has died")
+        
+    def attack(self, target: 'Character'):
+        target.stats.hp -= self.stats.strength
+
+
+class Player(Character):
+    
+    def __init__(self, character_type: str) -> None:
+        super().__init__(character_type)
+    
+    def is_critic(self) -> None:    
+        return choices(population=[False,True], cum_weights=[.6, .6])
+    
+    def escape(self) -> None:
+        return choices(population=[False,True], cum_weights=[.3, 1])
+    
+    def died(self):
+        exit()
+
+    # def drop(self) -> None:
+    #     self.drop_item = choices(population=[0,1], cum_weights=[.3, 1])
+    #     return print('Drop', self.drop_item, 'items')
         
 
 class Items:
