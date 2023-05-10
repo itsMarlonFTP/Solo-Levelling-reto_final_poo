@@ -47,7 +47,7 @@ def start_game():
             if enemy in Character.default_stats:
                 enemy = Character(enemy)
                 print('..................................................................................')
-                print(*(enemy),' has appeared')
+                print((enemy),' has appeared')
                 while (enemy.stats.hp > 0):
                 
                     print('PHASE', phase)
