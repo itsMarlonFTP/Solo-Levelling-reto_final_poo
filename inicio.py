@@ -93,3 +93,7 @@ class Player(Character):
 
 class Items:
     items= 0
+
+class Mage(Character):
+    def attack(self, target: 'Character'):
+        target.stats.hp -= self.stats.mana
