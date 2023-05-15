@@ -117,7 +117,7 @@ def start_game():
                 print('YOU DIED')
                 sys.exit() 
             elif player.is_alive():
-                print('¡¡', enemy, 'has been slain, keep going!!')   
+                print('¡¡', boss, 'has been slain, keep going!!')   
             if player.stats.hp > 70:
                 print("Congratulations, you just earn a heatlh potion")
                 Items.items += 1
@@ -196,9 +196,10 @@ def start_game():
                 print('YOU DIED')
                 sys.exit() 
             elif player.is_alive():
-                print('¡¡', boss, 'has been slain, keep going!!')   
+                print('¡¡', enemy, 'has been slain!! \
+                    DUNGEON IS CLEAR, CONGRATS YOU ARE A REAL HUNTER CLASS C')   
             if player.stats.hp > 70:
-                print("Congratulations, you just earn a heatlh potion")
+                print("You just earn a heatlh potion")
                 Items.items += 1
         
 
